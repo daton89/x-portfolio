@@ -16,7 +16,7 @@ const Footer = props => {
   return (
     <footer className={classes.footer}>
       <Typography variant="h6" align="center" gutterBottom>
-        Footer
+        Thanks for visiting my profile!
       </Typography>
       <Typography
         variant="subtitle1"
@@ -24,7 +24,7 @@ const Footer = props => {
         color="textSecondary"
         component="p"
       >
-        Something here to give the footer a purpose!
+        © Copyright 2018. All Rights are Reserved.
       </Typography>
     </footer>
   );
