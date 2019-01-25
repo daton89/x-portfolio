@@ -1,0 +1,22 @@
+version: '2' # specify docker-compose version
+
+# Define the services/containers to be run
+services:
+
+  portfolio: # name of the first service
+    hostname: portfolio
+    restart: always
+    container_name: portfolio
+    build: ./ # specify the directory of the Dockerfile
+    labels:
+      - traefik.backend=portfolio
+      - traefik.frontend.rule=Host:daton.it,www.daton.it
+      - traefik.docker.network=traefik_proxy
+      - traefik.port=80
+      - com.docker.compose.project=portfolio
+    networks:
+      - traefik_proxy
+      
+networks:
+  traefik_proxy:
+    external: true
