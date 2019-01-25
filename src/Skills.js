@@ -8,28 +8,38 @@ const styles = theme => ({
   title: {
     margin: '32px 0'
   },
-  skillsContainer: {
+  subtitle: {
+    margin: '5px 15px'
+  },
+  paper: {
     padding: '20px'
   },
-  skillItem: {
+  grid: {
+  },
+  gridItem: {
     width: "50%",
     padding: "14px !important"
   }
 });
 
 const Skills = props => {
-  const { classes } = props;
+  const { classes, description, collection } = props;
   return (
     <Fragment>
       <Typography variant="h5" align="center" className={classes.title} gutterBottom>
         Professional Skills
       </Typography>
-      <Paper>
-        <Grid container className={classes.skillsContainer} justify="center" spacing={8}>
-          {[0, 1, 2, 3, 4, 5].map(value => (
-            <Grid key={value} item className={classes.skillItem}>
-              <Typography gutterBottom>Angular</Typography>
-              <LinearProgress variant="determinate" value={50} />
+      <Paper className={classes.paper}>
+      <Typography variant="subtitle1" className={classes.subtitle} gutterBottom>
+        {description}
+      </Typography>
+        <Grid container className={classes.grid} justify="center" spacing={8}>
+          {collection.map(({name, level}, index) => (
+            <Grid key={index} item className={classes.gridItem}>
+              <Typography gutterBottom>{name}</Typography>
+              {level === 'basic' && <LinearProgress variant="determinate" value={30} />}
+              {level === 'medium' && <LinearProgress variant="determinate" value={60} />}
+              {level === 'advanced' && <LinearProgress variant="determinate" value={90} />}
             </Grid>
           ))}
         </Grid>
@@ -39,7 +49,9 @@ const Skills = props => {
 };
 
 Skills.propTypes = {
-  classes: PropTypes.object
+  classes: PropTypes.object,
+  description: PropTypes.string,
+  collection: PropTypes.array,
 };
 
 export default withStyles(styles)(Skills);
