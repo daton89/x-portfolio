@@ -1,0 +1,24 @@
+#root {
+  background-color: #cdcdcd44;
+}
+
+/* Fix for timeline */
+@media only screen and (min-width: 1170px) {
+  .vertical-timeline--two-columns
+    .vertical-timeline-element-content
+    .vertical-timeline-element-date {
+    left: 140% !important;
+  }
+
+  .vertical-timeline--two-columns
+    .vertical-timeline-element.vertical-timeline-element--right
+    .vertical-timeline-element-content
+    .vertical-timeline-element-date,
+  .vertical-timeline--two-columns
+    .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left)
+    .vertical-timeline-element-content
+    .vertical-timeline-element-date {
+        left: auto !important;
+    right: 140% !important;
+  }
+}
