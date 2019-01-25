@@ -129,7 +129,9 @@ class ContactMe extends Component {
                   .map((arr, index) => (
                     <Fragment key={index}>
                       <Grid item xs={2}>
-                        <div className={classes.contact}>{arr[0]} </div>
+                        <div className={classes.contact}>
+                          <Typography>{arr[0]}</Typography>
+                        </div>
                       </Grid>
                       <Grid item xs={10}>
                         <div className={classes.contact}>{arr[1]} </div>
