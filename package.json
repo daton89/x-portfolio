@@ -14,7 +14,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "docker-build": "docker build -t registry.daton.it/x-portfolio .",
+    "docker-run": "docker run --name x-portfolio -p 80:80 registry.daton.it/x-portfolio"
   },
   "eslintConfig": {
     "extends": "react-app"

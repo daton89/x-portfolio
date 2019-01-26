@@ -5,15 +5,15 @@ services:
 
   portfolio: # name of the first service
     hostname: portfolio
-    restart: always
+    restart: unless-stopped
     container_name: portfolio
     build: ./ # specify the directory of the Dockerfile
     labels:
       - traefik.backend=portfolio
-      - traefik.frontend.rule=Host:daton.it,www.daton.it
+      - "traefik.frontend.rule=Host:daton.it,www.daton.it"
       - traefik.docker.network=traefik_proxy
       - traefik.port=80
-      - com.docker.compose.project=portfolio
+      - com.docker.compose.project=x-portfolio
     networks:
       - traefik_proxy
       
