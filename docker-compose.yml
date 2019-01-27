@@ -3,13 +3,13 @@ version: '2' # specify docker-compose version
 # Define the services/containers to be run
 services:
 
-  portfolio: # name of the first service
-    hostname: portfolio
+  x-portfolio: # name of the first service
+    hostname: x-portfolio
     restart: unless-stopped
-    container_name: portfolio
+    container_name: x-portfolio
     build: ./ # specify the directory of the Dockerfile
     labels:
-      - traefik.backend=portfolio
+      - traefik.backend=x-portfolio
       - "traefik.frontend.rule=Host:daton.it,www.daton.it"
       - traefik.docker.network=traefik_proxy
       - traefik.port=80
